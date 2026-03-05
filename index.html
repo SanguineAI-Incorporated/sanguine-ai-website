@@ -1,26 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanguine AI - AI Security Research & Deployment</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: black;
-            margin: 0;
-            padding: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sanguine</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --yellow: #FFEF00;
+      --black: #000000;
+    }
+
+    html, body {
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+      min-height: 100vh;
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .logo-wrap svg {
+      width: min(520px, 90vw);
+      height: auto;
+      display: block;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: min(400px, 70vw);
+      height: 1px;
+      background: var(--black);
+      margin: 48px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.25s forwards;
+    }
+
+    /* ── Bio ── */
+    .bio {
+      max-width: 520px;
+      width: 100%;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.45s forwards;
+    }
+
+    .bio p {
+      font-size: 15px;
+      line-height: 1.75;
+      letter-spacing: 0.01em;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+
+    .bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bio .founders {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-top: 8px;
+    }
+
+    .bio .founders a {
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: opacity 0.15s ease;
+    }
+
+    .bio .founders a:hover {
+      opacity: 0.5;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 72px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.35;
+      font-weight: 500;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.65s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* fix footer double opacity */
+    .footer { opacity: 0; }
+  </style>
 </head>
 <body>
-    <h1>Sanguine AI</h1>
-    
-    <p>Sanguine AI is an artificial intelligence security research and deployment company.</p>
-    
-    <p>Our technology detects AI-assisted social engineering, deepfake ID fraud, and injection attacks, which are costly incidents for businesses performing KYC and AML.</p>
-    
-    <p>Our team builds modern risk systems that understand user behavior and support localized user experiences. We believe localized, culturally aware compliance helps platforms build and retain trust, as well as reach new markets.</p>
+
+  <div class="logo-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260">
+      <!-- Background -->
+      <rect width="600" height="260" fill="#FFEF00"/>
+
+      <!-- Horizon line -->
+      <line x1="100" y1="158" x2="500" y2="158" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- Sun semicircle -->
+      <path d="M 230 158 A 70 70 0 0 1 370 158" fill="none" stroke="#000" stroke-width="2"/>
+
+      <!-- Sun rays -->
+      <line x1="300" y1="158" x2="300" y2="51"  stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="253" y2="57"  stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="347" y2="57"  stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="212" y2="79"  stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="388" y2="79"  stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="178" y2="111" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="422" y2="111" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="155" y2="148" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="300" y1="158" x2="445" y2="148" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Atmosphere arcs -->
+      <path d="M 195 158 A 105 105 0 0 1 405 158" fill="none" stroke="#000" stroke-width="1"   opacity="0.3"/>
+      <path d="M 158 158 A 142 142 0 0 1 442 158" fill="none" stroke="#000" stroke-width="0.8" opacity="0.18"/>
+
+      <!-- SANGUINE wordmark -->
+      <text
+        x="300" y="218"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="48"
+        font-weight="700"
+        letter-spacing="10"
+        text-anchor="middle"
+        fill="#000"
+      >SANGUINE</text>
+    </svg>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="bio">
+    <p>Sanguine is an artificial intelligence company promoting safety in audio. We build robust, risk-driven authentication.</p>
+    <p>Our research focuses on teaching AI to notice subtle patterns in real voices — like tiny instabilities and natural rhythms that are hard to copy.</p>
+    <p>We're a team of ex-Afterpay &amp; Block risk experts based in San Francisco / Auckland.</p>
+    <p class="founders">Founders: <a href="https://www.linkedin.com/in/evanamoon/" target="_blank" rel="noopener">Evana Moon</a> &amp; <a href="mailto:bojan.janjic@sanguineai-incorporated.com">Bojan Janjic</a></p>
+  </div>
+
+  <div class="footer">San Francisco · Auckland</div>
+
 </body>
 </html>
